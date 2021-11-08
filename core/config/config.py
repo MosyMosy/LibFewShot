@@ -124,6 +124,7 @@ class Config(object):
             "--log_name",
             help="specific log dir name if necessary",
         )
+        parser.add_argument("--conf_file", type=str, help="path to config")
         parser.add_argument("-image_size", type=int, help="image size")
         parser.add_argument("-aug", "--augment", type=bool, help="use augment or not")
         parser.add_argument(
@@ -142,6 +143,7 @@ class Config(object):
         parser.add_argument("-test_episode", type=int, help="test episode num")
         parser.add_argument("-epochs", type=int, help="epoch num")
         parser.add_argument("-result", "--result_root", help="result path")
+        parser.add_argument("-result_method", "--result_method", help="a method result path")
         parser.add_argument("-save_interval", type=int, help="checkpoint save interval")
         parser.add_argument(
             "-log_level",
