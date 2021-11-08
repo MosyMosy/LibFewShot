@@ -139,9 +139,11 @@ class Config(object):
             type=int,
             help="augment times for query in few-shot",
         )
-        parser.add_argument("-train_episode", type=int, help="train episode num")
-        parser.add_argument("-test_episode", type=int, help="test episode num")
-        parser.add_argument("-epochs", type=int, help="epoch num")
+        parser.add_argument("-train_episode", "--train_episode", type=int, help="train episode num")
+        parser.add_argument("-test_episode", "--test_episode",type=int, help="test episode num")
+        parser.add_argument("-epochs", "--epoch", type=int, help="epoch num")
+        parser.add_argument("--test_epoch", type=int, help="test episode num")
+
         parser.add_argument("-result", "--result_root", help="result path")
         parser.add_argument("-result_method", "--result_method", help="a method result path")
         parser.add_argument("-save_interval", type=int, help="checkpoint save interval")

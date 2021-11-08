@@ -52,8 +52,9 @@ date +"%T"
 cd ..
 
 for shot in 1 5; do
-    python run_trainer.py --shot_num $shot --train_episode 300 --data_root ./dataset/miniImageNet--ravi --conf_file ./config/baseline.yaml
-    python run_trainer.py --shot_num $shot --train_episode 1000 --data_root ./dataset/tiered_imagenet --conf_file ./config/baseline.yaml
+    # train_episode is based on the (Samples/batch_size)
+    python run_trainer.py --shot_num $shot --test_episode 2000 --epoch 100 --test_epoch 5 --conf_file ./config/baseline.yaml --data_root ./dataset/miniImageNet--ravi
+    python run_trainer.py --shot_num $shot --test_episode 2000 --epoch 100 --test_epoch 5 --conf_file ./config/baseline.yaml --data_root ./dataset/tiered_imagenet
 done
 
 
