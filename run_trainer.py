@@ -52,6 +52,6 @@ if __name__ == "__main__":
     test.test_loop()
     
     
-    bashCommand = "cp -r {0} $SLURM_TMPDIR/scratch/mosymosy/LibFewShot/results/".format(result_path)
+    bashCommand = "cp -r {0} ./temp".format(result_path)
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()

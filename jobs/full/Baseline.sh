@@ -58,5 +58,5 @@ for shot in 1 5; do
 done
 
 
-# cd $SLURM_TMPDIR
-# cp -r $SLURM_TMPDIR/LibFewShot/results/Baseline* ~/scratch/LibFewShot/results/
+cd $SLURM_TMPDIR
+cp -r $SLURM_TMPDIR/LibFewShot/temp/ ~/scratch/LibFewShot/results/
