@@ -79,7 +79,7 @@ def get_dataloader(config, mode, model_type):
             dataset,
             batch_size=config["batch_size"],
             shuffle=True,
-            num_workers=config["n_gpu"] * 4,
+            num_workers=config["n_gpu"] * 1,
             drop_last=True,
             pin_memory=True,
             collate_fn=collate_function,
@@ -98,7 +98,7 @@ def get_dataloader(config, mode, model_type):
         dataloader = DataLoader(
             dataset,
             batch_sampler=sampler,
-            num_workers=config["n_gpu"] * 4,
+            num_workers=config["n_gpu"] * 1,
             pin_memory=True,
             collate_fn=collate_function,
         )
