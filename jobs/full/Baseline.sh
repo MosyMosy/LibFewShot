@@ -51,13 +51,11 @@ date +"%T"
 
 cd ..
 
-python run_trainer.py --shot_num 1 --data_root ./dataset/miniImageNet--ravi --conf_file ./config/Reproduce/Baseline-miniImageNet-Conv64F-5-1.yaml
-python run_trainer.py --shot_num 1 --data_root ./dataset/miniImageNet--ravi --conf_file ./config/Reproduce/Baseline-miniImageNet-Conv64F-5-5.yaml
+for shot in 1 5; do
+    python run_trainer.py --shot_num $shot --train_episode 300 --data_root ./dataset/miniImageNet--ravi --conf_file ./config/baseline.yaml
+    python run_trainer.py --shot_num $shot --train_episode 1000 --data_root ./dataset/tiered_imagenet --conf_file ./config/baseline.yaml
+done
 
-python run_trainer.py --shot_num 5 --data_root ./dataset/tiered_imagenet --conf_file ./config/Reproduce/Baseline-miniImageNet-Conv64F-5-1.yaml
-python run_trainer.py --shot_num 5 --data_root ./dataset/tiered_imagenet --conf_file ./config/Reproduce/Baseline-miniImageNet-Conv64F-5-5.yaml
-
-wait
 
 cd $SLURM_TMPDIR
 cp -r $SLURM_TMPDIR/LibFewShot/results/Baseline* ~/scratch/LibFewShot/results/
