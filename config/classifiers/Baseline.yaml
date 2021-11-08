@@ -9,4 +9,4 @@ classifier:
       inner_train_iter: 100
       inner_batch_size: 4
     feat_dim: 64000
-    num_class: 64
+    num_class: 1000
