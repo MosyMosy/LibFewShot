@@ -29,7 +29,9 @@ if __name__ == "__main__":
         "train_episode": args.train_episode,
         "test_episode": args.test_episode,
         "epoch": args.epoch,
-        "test_epoch": args.test_epoch
+        "test_epoch": args.test_epoch,
+        "episode_size": 1,
+        "test_way": 5,
     }
     
     print(args.conf_file)
@@ -42,14 +44,7 @@ if __name__ == "__main__":
     print("----------------------------------------------------------------------------")
     print("--------------------------------   Testing   -------------------------------")
     print("----------------------------------------------------------------------------")
-    VAR_DICT = {
-        "test_epoch": 5,
-        "device_ids": "0",
-        "n_gpu": 1,
-        "test_episode": 2000,
-        "episode_size": 1,
-        "test_way": 5,
-    }
+    
     args = parser.parse_args()
     config = Config(os.path.join(result_path, "config.yaml"),
                     VAR_DICT).get_config_dict()
