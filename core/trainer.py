@@ -93,6 +93,7 @@ class Trainer(object):
             )
         )
         self.logger.info("Result DIR: {}".format(self.result_path))
+        return self.result_path
 
     def _train(self, epoch_idx):
         """
