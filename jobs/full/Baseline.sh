@@ -52,11 +52,11 @@ date +"%T"
 cd ..
 
 for shot in 1 5; do
-    # train_episode is based on the (Samples/batch_size)
-    python run_trainer.py --shot_num $shot --test_episode 2000 --epoch 100 --test_epoch 5 --conf_file ./config/baseline.yaml --data_root ./dataset/miniImageNet--ravi
-    python run_trainer.py --shot_num $shot --test_episode 2000 --epoch 100 --test_epoch 5 --conf_file ./config/baseline.yaml --data_root ./dataset/tiered_imagenet
+    # train_episode is based on the (Samples/batch_size) miniImageNet: 300, Tired_ImageNet: 3505
+    python run_trainer.py --shot_num $shot --train_episode 0 --test_episode 2000 --epoch 100 --test_epoch 5 --conf_file ./config/baseline.yaml --data_root ./dataset/miniImageNet--ravi
+    python run_trainer.py --shot_num $shot --train_episode 0 --test_episode 2000 --epoch 100 --test_epoch 5 --conf_file ./config/baseline.yaml --data_root ./dataset/tiered_imagenet
 done
 
 
-cd $SLURM_TMPDIR
-cp -r $SLURM_TMPDIR/LibFewShot/results/Baseline* ~/scratch/LibFewShot/results/
+# cd $SLURM_TMPDIR
+# cp -r $SLURM_TMPDIR/LibFewShot/results/Baseline* ~/scratch/LibFewShot/results/

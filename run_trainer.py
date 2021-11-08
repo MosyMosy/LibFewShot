@@ -5,6 +5,7 @@ from core import Test
 from core.config import Config
 import os
 import sys
+import subprocess
 
 sys.dont_write_bytecode = True
 
@@ -54,3 +55,8 @@ if __name__ == "__main__":
                     VAR_DICT).get_config_dict()
     test = Test(config, result_path)
     test.test_loop()
+    
+    
+    bashCommand = "cp -r {0} ~/scratch/LibFewShot/results/".format(result_path)
+    process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
+    output, error = process.communicate()
