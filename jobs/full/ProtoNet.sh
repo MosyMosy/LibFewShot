@@ -59,4 +59,4 @@ done
 
 
 cd $SLURM_TMPDIR
-cp -r $SLURM_TMPDIR/LibFewShot/temp/ ~/scratch/LibFewShot/results/
+cp -r $SLURM_TMPDIR/LibFewShot/temp/* ~/scratch/LibFewShot/results/
