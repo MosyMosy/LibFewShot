@@ -54,9 +54,10 @@ cd ..
 for shot in 1 5; do
     # train_episode is based on the (Samples/batch_size) miniImageNet: 300, Tired_ImageNet: 3505
     python run_trainer.py --shot_num $shot --train_episode 300 --test_episode 2000 --epoch 100 --test_epoch 5 --conf_file ./config/baseline.yaml --data_root ./dataset/miniImageNet--ravi
+    mv $SLURM_TMPDIR/LibFewShot/temp/* ~/scratch/LibFewShot/results/
+
     python run_trainer.py --shot_num $shot --train_episode 3505 --test_episode 2000 --epoch 100 --test_epoch 5 --conf_file ./config/baseline.yaml --data_root ./dataset/tiered_imagenet
+    mv $SLURM_TMPDIR/LibFewShot/temp/* ~/scratch/LibFewShot/results/
 done
 
-
-cd $SLURM_TMPDIR
 cp -r $SLURM_TMPDIR/LibFewShot/temp/* ~/scratch/LibFewShot/results/
