@@ -22,7 +22,29 @@ parser.add_argument("--test_epoch", type=int, default=5, help="test episode num"
 if __name__ == "__main__":
     args = parser.parse_args()
 
-    VAR_DICT = {
+    TRAIN_DICT = {
+        "data_root": args.data_root,
+        "shot_num":args.shot_num,
+        "test_shot":args.shot_num,
+        "train_episode": args.train_episode,
+        "test_episode": args.train_episode,
+        "epoch": args.epoch,
+        "test_epoch": args.test_epoch,
+        "episode_size": 1,
+        "test_way": 5,
+    }
+    
+    print(args.conf_file)
+    config = Config(args.conf_file, variable_dict=TRAIN_DICT).get_config_dict()
+    trainer = Trainer(config)
+    result_path = trainer.train_loop()
+
+    # Testing
+    print('')
+    print("----------------------------------------------------------------------------")
+    print("--------------------------------   Testing   -------------------------------")
+    print("----------------------------------------------------------------------------")
+    TEST_DICT = {
         "data_root": args.data_root,
         "shot_num":args.shot_num,
         "test_shot":args.shot_num,
@@ -33,21 +55,9 @@ if __name__ == "__main__":
         "episode_size": 1,
         "test_way": 5,
     }
-    
-    print(args.conf_file)
-    config = Config(args.conf_file, variable_dict=VAR_DICT).get_config_dict()
-    trainer = Trainer(config)
-    result_path = trainer.train_loop()
-
-    # Testing
-    print('')
-    print("----------------------------------------------------------------------------")
-    print("--------------------------------   Testing   -------------------------------")
-    print("----------------------------------------------------------------------------")
-    
     args = parser.parse_args()
     config = Config(os.path.join(result_path, "config.yaml"),
-                    VAR_DICT).get_config_dict()
+                    TEST_DICT).get_config_dict()
     test = Test(config, result_path)
     test.test_loop()
     
