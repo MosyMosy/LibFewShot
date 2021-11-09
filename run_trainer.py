@@ -16,7 +16,7 @@ parser.add_argument('--data_root', default='./dataset/miniImageNet--ravi',  help
 parser.add_argument('--shot_num', default=0, type=int, help='training num_shot')
 parser.add_argument('--conf_file', type=str, required=True,  help='path to config')
 parser.add_argument("--train_episode", type=int, default=300, help="train episode num")
-parser.add_argument("--test_episode", type=int, default=2000, help="test episode num")
+# parser.add_argument("--test_episode", type=int, default=2000, help="test episode num")
 parser.add_argument("--epoch", type=int, default=100, help="test episode num")
 parser.add_argument("--test_epoch", type=int, default=5, help="test episode num")
 if __name__ == "__main__":
@@ -49,7 +49,7 @@ if __name__ == "__main__":
         "shot_num":args.shot_num,
         "test_shot":args.shot_num,
         "train_episode": args.train_episode,
-        "test_episode": args.test_episode,
+        "test_episode": 2000,
         "epoch": args.epoch,
         "test_epoch": args.test_epoch,
         "episode_size": 1,
