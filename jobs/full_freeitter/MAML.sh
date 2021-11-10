@@ -53,10 +53,10 @@ cd ..
 
 for shot in 1 5; do
     # train_episode is based on the (Samples/batch_size) miniImageNet: 300, Tired_ImageNet: 3505
-    python run_trainer.py --shot_num $shot --train_episode 10000 --training_test_episode 5000 --epoch 100 --test_epoch 5 --tag freeitter --conf_file ./config/maml.yaml --data_root ./dataset/miniImageNet--ravi
+    python run_trainer.py --shot_num $shot --train_episode 10000 --training_test_episode 1000 --epoch 100 --test_epoch 5 --tag freeitter --conf_file ./config/maml.yaml --data_root ./dataset/miniImageNet--ravi
     mv $SLURM_TMPDIR/LibFewShot/temp/* ~/scratch/LibFewShot/results/
     
-    python run_trainer.py --shot_num $shot --train_episode 10000 --training_test_episode 5000 --epoch 100 --test_epoch 5 --tag freeitter --conf_file ./config/maml.yaml --data_root ./dataset/tiered_imagenet
+    python run_trainer.py --shot_num $shot --train_episode 10000 --training_test_episode 1000 --epoch 100 --test_epoch 5 --tag freeitter --conf_file ./config/maml.yaml --data_root ./dataset/tiered_imagenet
     mv $SLURM_TMPDIR/LibFewShot/temp/* ~/scratch/LibFewShot/results/
 done
 
