@@ -141,6 +141,7 @@ class Config(object):
         )
         parser.add_argument("-train_episode", "--train_episode", type=int, help="train episode num")
         parser.add_argument("-test_episode", "--test_episode",type=int, help="test episode num")
+        parser.add_argument("--training_test_episode", type=int, help="test episode num")
         parser.add_argument("-epochs", "--epoch", type=int, help="epoch num")
         parser.add_argument("--test_epoch", type=int, help="test episode num")
 

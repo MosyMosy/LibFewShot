@@ -16,22 +16,23 @@ parser.add_argument('--data_root', default='./dataset/miniImageNet--ravi',  help
 parser.add_argument('--shot_num', default=0, type=int, help='training num_shot')
 parser.add_argument('--conf_file', type=str, required=True,  help='path to config')
 parser.add_argument("--train_episode", type=int, default=300, help="train episode num")
-# parser.add_argument("--test_episode", type=int, default=2000, help="test episode num")
+parser.add_argument("--training_test_episode", type=int, default=300, help="test episode num")
 parser.add_argument("--epoch", type=int, default=100, help="test episode num")
 parser.add_argument("--test_epoch", type=int, default=5, help="test episode num")
+parser.add_argument("-tag", "--tag", type=str, help="experiment tag")
 if __name__ == "__main__":
-    args = parser.parse_args()
-
+    args = parser.parse_args()        
     TRAIN_DICT = {
         "data_root": args.data_root,
         "shot_num":args.shot_num,
         "test_shot":args.shot_num,
         "train_episode": args.train_episode,
-        "test_episode": args.train_episode,
+        "test_episode": args.training_test_episode,
         "epoch": args.epoch,
         "test_epoch": args.test_epoch,
         "episode_size": 1,
         "test_way": 5,
+        "tag": args.tag
     }
     
     print(args.conf_file)
@@ -54,6 +55,7 @@ if __name__ == "__main__":
         "test_epoch": args.test_epoch,
         "episode_size": 1,
         "test_way": 5,
+        "tag": args.tag
     }
     args = parser.parse_args()
     config = Config(os.path.join(result_path, "config.yaml"),
