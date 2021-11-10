@@ -51,7 +51,7 @@ date +"%T"
 
 cd ..
 
-for shot in 1 5; do
+for shot in 5; do
     python run_trainer.py --shot_num $shot --train_episode 10000 --training_test_episode 1000 --epoch 100 --test_epoch 5 --tag freeitter --conf_file ./config/proto_no_affine.yaml --data_root ./dataset/tiered_imagenet
     mv $SLURM_TMPDIR/LibFewShot/temp/* ~/scratch/LibFewShot/results/
 

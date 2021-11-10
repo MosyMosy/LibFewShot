@@ -11,7 +11,7 @@
 #SBATCH --gres=gpu:4
 #SBATCH --ntasks-per-node=32
 #SBATCH --mem=127000M
-#SBATCH --time=2-12:00
+#SBATCH --time=3-00:00
 #SBATCH --account=rrg-ebrahimi
 
 nvidia-smi
@@ -51,7 +51,7 @@ date +"%T"
 
 cd ..
 
-for shot in 1 5; do
+for shot in 5; do
     python run_trainer.py --shot_num $shot --train_episode 10000 --training_test_episode 1000 --epoch 100 --test_epoch 5 --tag freeitter --conf_file ./config/proto.yaml --data_root ./dataset/tiered_imagenet
     mv $SLURM_TMPDIR/LibFewShot/temp/* ~/scratch/LibFewShot/results/
 
