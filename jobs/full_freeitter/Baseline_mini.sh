@@ -5,13 +5,13 @@
 #SBATCH --mail-type=FAIL
 #SBATCH --mail-type=REQUEUE
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=Proto_full_freeitter
+#SBATCH --job-name=Baseline_mini_freeitter
 #SBATCH --output=%x-%j.out
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:4
 #SBATCH --ntasks-per-node=32
 #SBATCH --mem=127000M
-#SBATCH --time=2-00:00
+#SBATCH --time=1-12:00
 #SBATCH --account=rrg-ebrahimi
 
 nvidia-smi
@@ -52,13 +52,8 @@ date +"%T"
 cd ..
 
 for shot in 1 5; do
-    # train_episode is based on the (Samples/batch_size) miniImageNet: 300, Tired_ImageNet: 3505
-    python run_trainer.py --shot_num $shot --train_episode 10000 --training_test_episode 1000 --epoch 100 --test_epoch 5 --tag freeitter --conf_file ./config/proto.yaml --data_root ./dataset/miniImageNet--ravi
-    mv $SLURM_TMPDIR/LibFewShot/temp/* ~/scratch/LibFewShot/results/
-
-    python run_trainer.py --shot_num $shot --train_episode 10000 --training_test_episode 1000 --epoch 100 --test_epoch 5 --tag freeitter --conf_file ./config/proto.yaml --data_root ./dataset/tiered_imagenet
-    mv $SLURM_TMPDIR/LibFewShot/temp/* ~/scratch/LibFewShot/results/
-
+    python run_trainer.py --shot_num $shot --train_episode 10000 --training_test_episode 1000 --epoch 100 --test_epoch 5 --tag freeitter --conf_file ./config/baseline.yaml --data_root ./dataset/miniImageNet--ravi
+    mv $SLURM_TMPDIR/LibFewShot/temp/* ~/scratch/LibFewShot/results/    
 done
 
 cp -r $SLURM_TMPDIR/LibFewShot/temp/* ~/scratch/LibFewShot/results/
