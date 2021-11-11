@@ -144,7 +144,8 @@ class Config(object):
         parser.add_argument("--training_test_episode", type=int, help="test episode num")
         parser.add_argument("-epochs", "--epoch", type=int, help="epoch num")
         parser.add_argument("--test_epoch", type=int, help="test episode num")
-
+        parser.add_argument("-resume_path", "--resume_path", type=str, help="resume_path")
+        
         parser.add_argument("-result", "--result_root", help="result path")
         parser.add_argument("-result_method", "--result_method", help="a method result path")
         parser.add_argument("-save_interval", type=int, help="checkpoint save interval")
