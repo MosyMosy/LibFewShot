@@ -50,7 +50,7 @@ echo "---------------------------------------<Run the program>------------------
 date +"%T"
 
 cd ..
-python run_trainer_resume.py resume_path './results/ProtoNet-miniImageNet--ravi-Conv64F-5-1-freeitter-Nov-10-2021-11-04-28/'
+python run_trainer_resume.py --resume_path './results/ProtoNet-miniImageNet--ravi-Conv64F-5-1-freeitter-Nov-10-2021-11-04-28/'
 
 wait
 
